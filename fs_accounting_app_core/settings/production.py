@@ -31,15 +31,14 @@ SESSION_COOKIE_SECURE = True
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mssql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': env('DB_NAME'),
         'USER': env('DB_USER'),
         'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOST') + "," + env('DB_PORT'),
+        'HOST': env('DB_HOST'),
         'PORT': env('DB_PORT'),
         'OPTIONS': {
             'ssl': {'ca': os.path.join(os.path.dirname(__file__), 'DigiCertGlobalRootCA.crt.pem')},
-            'driver': 'ODBC Driver 18 for SQL Server',
             }
     }     
 }

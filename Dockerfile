@@ -16,7 +16,7 @@ RUN pip install mysqlclient
 
 RUN pip install Pillow
 
-RUN pip install pyodbc django-pyodbc-azure
+RUN pip install pyodbc 
 
 RUN pip install django-environ
 
@@ -27,7 +27,10 @@ RUN pip install pipenv && pipenv install
 COPY . . 
 
 
-CMD ["python","manage.py","runserver","0.0.0.0:8000"]
+
+
+CMD ["bash", "startup.sh", "prod"]
+#CMD ["python","manage.py","runserver","0.0.0.0:8000"]
 
 
 
